@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Forms Assignment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /*background page layout */
+        body {
+            font-family: 'Roboto Slab', serif;
+            background: linear-gradient(135deg, #f4a460 0%, #ff6b6b 50%, #ff8c42 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /*White card to make the form*/
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a3a52;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #1a3a52;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 30px 0 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Input styles for text, email, password*/
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #e8e8e8;
+            font-family: 'Roboto Slab', serif;
+            font-size: 14px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .password-requirements {
+            font-size: 13px;
+            font-style: italic;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /*layout for checkbox*/
+        .checkbox-group,
+        .radio-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group.full,
+        .radio-group.full {
+            grid-template-columns: 1fr;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /*section title inside dev skills*/
+        .skill-category {
+            margin-bottom: 20px;
+        }
+
+        .skill-category-title {
+            font-weight: 700;
+            color: #1a3a52;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /*base button look*/
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /*submit button*/
+        .submit-btn {
+            background-color: #1a3a52;
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background-color: #0f2438;
+        }
+
+        .submit-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 58, 82, 0.3);
+        }
+
+        /*clear button*/
+        .clear-btn {
+            background-color: white;
+            color: #ff6b6b;
+            border: 2px solid #ff6b6b;
+        }
+
+        .clear-btn:hover {
+            background-color: #fff5f5;
+        }
+
+        .clear-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        }
+
+        /*mobile laybout*/
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .checkbox-group,
+            .radio-group {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-title">Signup</h1>
+
+        <form id="signupForm" method="POST" action="#">
+            <!-- Account information section -->
+            <fieldset>
+                <legend data-number="1">Account Info</legend>
+
+                <div class="form-group">
+                    <label for="fullName" class="visually-hidden">Full name</label>
+                    <input 
+                        type="text" 
+                        id="fullName" 
+                        name="fullName" 
+                        placeholder="Full name..." 
+                        required
+                    >
+                </div>
+
+                <!-- fullname -->
+                <div class="form-group">
+                    <label for="email" class="visually-hidden">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Email Address..." 
+                        required
+                    >
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="password" class="visually-hidden">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Password..." 
+                        required
+                    >
+                    <div class="password-requirements">
+                        Minimum 12 Characters.<br>
+                        Must include uppercase, lowercase, number and symbol.
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Dev Skills section -->
+            <fieldset>
+                <legend data-number="2">Dev Skills</legend>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Core Languages</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="html" name="languages[]" value="HTML">
+                            <label for="html">HTML</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="css" name="languages[]" value="CSS">
+                            <label for="css">CSS</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="javascript" name="languages[]" value="JavaScript">
+                            <label for="javascript">JavaScript</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="php" name="languages[]" value="PHP">
+                            <label for="php">PHP</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="csharp" name="languages[]" value="C#">
+                            <label for="csharp">C#</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="kotlin" name="languages[]" value="Kotlin">
+                            <label for="kotlin">Kotlin</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Libraries / Frameworks</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="react" name="frameworks[]" value="React">
+                            <label for="react">React</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="angular" name="frameworks[]" value="Angular">
+                            <label for="angular">Angular</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="vuejs" name="frameworks[]" value="Vue.js">
+                            <label for="vuejs">Vue.js</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Dev Ops</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="git" name="devops[]" value="GIT">
+                            <label for="git">GIT</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="gulp" name="devops[]" value="Gulp">
+                            <label for="gulp">Gulp</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="docker" name="devops[]" value="Docker">
+                            <label for="docker">Docker</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Experience section -->
+            <fieldset>
+                <legend data-number="3">Experience</legend>
+
+                <div class="radio-group full">
+                    <div class="radio-item">
+                        <input type="radio" id="beginner" name="experience" value="Beginner">
+                        <label for="beginner">Beginner</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="intermediate" name="experience" value="Intermediate">
+                        <label for="intermediate">Intermediate</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="advanced" name="experience" value="Advanced">
+                        <label for="advanced">Advanced</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Other section -->
+            <fieldset>
+                <legend data-number="4">Other</legend>
+
+                <div class="form-group">
+                    <label for="hearAbout" class="visually-hidden">How did you hear about us?</label>
+                    <select id="hearAbout" name="hearAbout">
+                        <option value="">Please Select...</option>
+                        <optgroup label="Social Media">
+                            <option value="Facebook">Facebook</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                        </optgroup>
+                        <optgroup label="Search">
+                            <option value="Google">Google</option>
+                            <option value="Bing">Bing</option>
+                        </optgroup>
+                        <optgroup label="Other">
+                            <option value="Magic!">Magic!</option>
+                            <option value="Other...">Other...</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group hidden" id="additionalDetailsGroup">
+                    <label for="additionalDetails" class="visually-hidden">Please provide additional details</label>
+                    <textarea 
+                        id="additionalDetails" 
+                        name="additionalDetails" 
+                        placeholder="Please provide additional details..."
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments" class="visually-hidden">Comments</label>
+                    <div style="font-weight: 700; color: #1a3a52; margin-bottom: 10px; font-size: 14px;">Comments</div>
+                    <textarea 
+                        id="comments" 
+                        name="comments" 
+                        placeholder="Enter your comments here..."
+                    ></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <button type="submit" class="submit-btn">Submit</button>
+                <button type="button" class="clear-btn" id="clearBtn">Clear Form</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
