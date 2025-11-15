@@ -1,0 +1,4 @@
+For Assignment A02, I used AI assistance to clarify Git branching steps, gradient usage, 
+and documentation structure. AI helped me understand the workflow of creating branches, 
+managing screenshots, adding gradients, and preparing the final files for submission. 
+The learning impact was increased confidence with Git commands, CSS gradients, and GitHub PR workflow.
